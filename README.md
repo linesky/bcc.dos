@@ -1,2 +1,5 @@
-# Virtual.reality.keys
-Changed reality using keys up down left rigth
+# free.dos.command
+
+
+command line using bcc compiler
+
