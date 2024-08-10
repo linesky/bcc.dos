@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dos.h>
-// need file libdos.c to be compile in directory
 //bcc  -Md hello.c -o HELLO.COM
+#define varn 0x0080
 void cls3(cls1);
 int main(argc,argv)
 int argc;
@@ -12,47 +12,26 @@ char *argv[];
 	int nn;
 	int n;
 	
-	if(argc>0){
+	
 	        
 	        n=1;
-		nn=7*16+n;
+		nn=0x71;
 	        cls3(nn);	
-	}else{
-		return 1;
-	}
+	
 	
 	return 0;
 }
 void cls3(cls1)
 {
-	int i;
-	i=0xb800;
-	movedata(__get_ds(),&i,__get_cs(),0x80,2);
-	i=80*25*2-2;
-	movedata(__get_ds(),&i,__get_cs(),0x82,2);
-	i=(int)cls1;
-	i=i<<8;
-	i=i+32;
-	movedata(__get_ds(),&i,__get_cs(),0x84,2);
-	asm "push ds";
-	asm "push cs";
-	asm "pop ds";
-	asm "mov bx,[0x82]";
-	asm "mov cx,[0x84]";
-	asm "mov ax,[0x80]";
-	asm "push ax";
-	asm "pop ds";
-	asm "xor dx,dx";
-	asm "dec dx";
-	asm "dec dx";
-	asm "mov ax,cx";
+        int *c;
+	c = (int * ) varn;
+		*(c + 0)=cls1;
+		
+		asm	"db 0x1e,0x3e,0x8b,0x16,0x80,0x00,0xbb,0x01,0x00,0xb8,0x00,0xb8,0xb9,0xd0,0x07,0x8e,0xd8,0x88,0xd0,0x3e,0x88,0x07,0x43,0x43,0x49,0x83,0xf9,0x00,0x75,0xf5,0x1f";
+		
+	
 
-asm "label1:";
-asm "mov [bx],ax";
-asm "dec bx";
-asm "dec bx";
-asm "cmp bx,dx";
-	asm "jnz label1";
-	asm "pop ds";
 	
 	}
+
+
