@@ -43,3 +43,6 @@ bios source
 
 https://github.com/lkundrak/coreboot/blob/x61/util/vgabios/int10.c
 
+libc source
+
+https://github.com/lkundrak/dev86/tree/master/libc
