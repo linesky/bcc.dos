@@ -17,5 +17,9 @@ net tools
 
 https://github.com/lkundrak/net-tools
 
+live cd 
+
+https://github.com/lkundrak/livecd
+
 
 
