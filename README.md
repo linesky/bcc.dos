@@ -12,3 +12,10 @@ https://github.com/lkundrak/linux
 boot core:
 
 https://github.com/lkundrak/coreboot/tree/x61/src
+
+net tools
+
+https://github.com/lkundrak/net-tools
+
+
+
