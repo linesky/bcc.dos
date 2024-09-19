@@ -30,5 +30,8 @@ qemu:
 
 https://github.com/lkundrak/qemu
 
+elks
+
+https://github.com/lkundrak/elks
 
 
