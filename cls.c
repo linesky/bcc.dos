@@ -1,10 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <dos.h>
+
 //bcc  -Md hello.c -o HELLO.COM
 #define varn 0x0080
-void cls3(cls1);
+
 int main(argc,argv)
 int argc;
 char *argv[];
@@ -15,23 +12,46 @@ char *argv[];
 	
 	        
 	        n=1;
-		nn=0x7120;
+		nn=0x0720;
 	        cls3(nn);	
 	
 	
 	return 0;
 }
-void cls3(cls1)
-{
-        int *c;
-	c = (int * ) varn;
-		*(c + 0)=cls1;
-		
-		asm	"db 0x1e,0x3e,0x8b,0x16,0x80,0x00,0xbb,0x00,0x00,0xb8,0x00,0xb8,0xb9,0xd0,0x07,0x8e,0xd8,0x89,0xd0,0x3e,0x89,0x07,0x43,0x43,0x49,0x83,0xf9,0x00,0x75,0xf5,0x1f";
-		
-	
+#asm
+.globl _cls3
+.globl _sputc 
+_cls3:
+    mov si,sp
+    add si,*0x2
+    mov dx,[si]
+    mov ax,*0xb800
+    push ds
+    mov ds,ax
+    
+    mov ax,dx
+    mov cx,*0x8a0
+    mov si,*0x0
+    
+cls31:
+    
+    mov [si],ax   
+    inc si
+    inc si
+    dec cx
+    cmp cx,*0x0
+    jnz cls31
+    pop ds
+    ret
+_sputc:
+    mov si,sp
+    add si,*0x2
+    mov dx,[si]
+    mov ah,*02
+    int *0x21
+    ret
 
-	
-	}
+#endasm
+
 
 
