@@ -8,3 +8,7 @@ bcc source c source https://github.com/lkundrak/dev86
 linux source:
 
 https://github.com/lkundrak/linux
+
+boot core:
+
+https://github.com/lkundrak/coreboot/tree/x61/src
