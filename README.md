@@ -39,3 +39,7 @@ boot sys io
 
 https://github.com/lkundrak/toyos
 
+bios source
+
+https://github.com/lkundrak/coreboot/blob/x61/util/vgabios/int10.c
+
