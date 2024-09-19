@@ -26,5 +26,9 @@ httpd source:
 https://github.com/lkundrak/httpd
 
 
+qemu:
+
+https://github.com/lkundrak/qemu
+
 
 
