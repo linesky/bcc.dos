@@ -35,8 +35,8 @@ char *argv[];
 		
 			do{
 					t=read(f1,sss,bufsize);
-					sss[bufsize+1];
-					sss[t+1];
+					sss[bufsize+1]=0;
+					sss[t+1]=0;
 					sputs(sss);
 			
 			
