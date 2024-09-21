@@ -33,18 +33,13 @@ char *argv[];
 		
                         rrr=sss;
 			for (n=0;n<126;n++)sss[n];
-			r=argv[1];
-			t=r[0];
-			t=t | 0x20;
 			
-			t=t-97;
-			sputc(ns[t]);
-			sputc(13);
-			sputc(10);
+			
 			
 		        pwds(0,rrr);
 		        sputs(rrr);
-		
+		        sputc(13);
+			sputc(10);
 			
 		
 		
