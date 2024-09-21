@@ -3,7 +3,7 @@
 
 #define varn 0xc080
 
-
+int lowercmp(a,b);
 void getss(s,i);
 char getcc();
 void sputs(cc);
@@ -17,8 +17,9 @@ char *argv[];
         char *r=" ";
         char *rr="\n";
         char *rrr;
-	int nn;
-	int n;
+        int nnn=0;
+	int nn=0;
+	int n=0;
 	char sss[128];
 	char sss1="!!!!!!";
 	cls3(0x2007);
@@ -30,10 +31,18 @@ char *argv[];
 	    getss(sss,78);
 	    sputc(13);
 	    sputc(10);
-	    systems(sss);
-	    sputc(13);
-	    sputc(10);
 	    nn=lowercmp(sss,"exit");
+	    if(nn==0){
+	        nnn=systems(sss);
+	        sputc(13);
+	        sputc(10);
+	        if (nnn==1){
+	            sputs("error");
+	            sputc(13);
+	            sputc(10);
+	        }
+	    }
+	    
 	}
 	return 0;
 }
@@ -178,6 +187,11 @@ _systems:
     mov al,*0
     mov ah,*0x4b
     int $21
+    jc systems2
+    mov ax,0
+    ret
+systems2:
+    mov ax,1
     ret
 #endasm
 
